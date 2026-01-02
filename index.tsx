@@ -12,6 +12,3 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
-if (import.meta.env.MODE === 'test') {
-  import('./index.test');
-}
