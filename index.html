@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>2026 手搖成癮病歷表</title>
+    
+    <!-- iOS PWA 支援 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="手搖病歷">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入 Babel 核心：這是解決 GitHub Pages 404/MIME 錯誤的關鍵 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        :root {
+            --safe-top: env(safe-area-inset-top);
+            --safe-bottom: env(safe-area-inset-bottom);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #ffffff;
+            background-image: linear-gradient(#f0f0f0 1px, transparent 1px);
+            background-size: 100% 2.5rem;
+            color: #5D5D5D;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.05), 0 4px 10px -5px rgba(0,0,0,0.02);
+        }
+        
+        /* 自定義滾動條 */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+
+        /* 防止 iOS 輸入框自動放大 */
+        input { font-size: 16px !important; }
+
+        /* iOS 全螢幕模式額外間距 */
+        @media (display-mode: standalone) {
+            #root {
+                padding-top: var(--safe-top);
+            }
+        }
+    </style>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 
+      修正關鍵：使用 type="text/babel" 並加上 data-presets。
+      Babel 會攔截這個請求，使用 fetch() 抓取原始碼，並自動處理 TypeScript 語法。
+    -->
+    <script 
+      type="text/babel" 
+      data-presets="react,typescript" 
+      data-type="module" 
+      src="index.tsx">
+    </script>
+</body>
+</html>
